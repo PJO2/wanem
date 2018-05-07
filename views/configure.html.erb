@@ -1,0 +1,28 @@
+<html>
+<H1>wanem: configure interface <%= itf %></H1>
+
+<br>
+<form action='/configure?itf=<%= itf %>' method='post'>
+  <Table>
+     <tr>
+         <td>bandwidth</td>
+         <td><%= data[:bandwidth] %></td>
+         <td><input type="text" name="bandwidth" value="<%= data[:bandwidth] %>"> Kbits</td>
+     </tr><tr>
+         <td>delay</td>
+         <td><%= data[:delay] %></td>
+         <td><input type="text" name="delay" value="<%= data[:delay] %>"> ms</td>
+     </tr><tr>
+         <td>jitter</td>
+         <td><%= data[:jitter] %></td>
+         <td><input type="text" name="jitter" value="<%= data[:jitter] %>"> ms</td>
+     </tr><tr>
+         <td>loss</td>
+         <td><%= data[:loss] %></td>
+         <td><input type="text" name="loss" value="<%= data[:loss] %>"> %</td>
+      </tr>
+  </table>
+  <input type='submit' value="GO" />
+</form>
+</html>
+   

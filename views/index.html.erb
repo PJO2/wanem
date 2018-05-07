@@ -1,0 +1,35 @@
+<html>
+<H1>wanem</H1>
+
+<Table>
+   <tr>
+          <th>Interface</th>
+          <th>&nbsp;</th>
+          <th>status</th>
+          <th>bandwidth</th><th>delay</th><th>jitter</th><th>loss</th>
+          <th>in- packets</th>
+          <th>out packets</th>
+          <th>lldp neighbor<th>
+   </tr>
+   <% op_datas.each_with_index do | (itf, data), index | %>
+     <% if ( index % 4  < 2 ) %>
+       <tr style="background-color:#D0D0FF">
+     <% else %>
+       <tr style="background-color:#D0FFD0">
+     <% end %>
+          <td><%= itf %></td>
+          <td><A HREF="configure?itf=<%= itf %>">Configure</A></td>
+          <td><%= data[:status] %></td>
+          <td><%= data[:bandwidth] %></td>
+          <td><%= data[:delay] %></td>
+          <td><%= data[:jitter] %></td>
+          <td><%= data[:loss] %></td>
+          <td><%= data[:inpkts] %></td>
+          <td><%= data[:outpkts] %></td>
+          <td><%= data[:neighbor] %></td>
+      </tr>
+  <% end %>
+</table>
+
+</html>
+   

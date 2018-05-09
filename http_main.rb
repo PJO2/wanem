@@ -19,7 +19,7 @@ configure do
 end
 
 
-NICs = [ 'enp3s0', 'enp4s0', 'enp5s0', 'enp6s0' ]
+NICs = [ 'enp1s0', 'enp2s0', 'enp3s0', 'enp4s0', 'enp5s0', 'enp6s0' ]
 
 get '/' do
   op_datas = get_op_data( NICs )

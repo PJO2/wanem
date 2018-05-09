@@ -12,13 +12,19 @@
           <th>lldp neighbor<th>
    </tr>
    <% op_datas.each_with_index do | (itf, data), index | %>
-     <% if ( index % 4  < 2 ) %>
+     <% if ( index < 2 ) %>
+       <tr style="background-color:#E0E0E0; color:#808080">
+     <% elsif ( index % 4  < 2 ) %>
        <tr style="background-color:#D0D0FF">
      <% else %>
        <tr style="background-color:#D0FFD0">
      <% end %>
           <td><%= itf %></td>
+     <% if ( index < 2 ) %>
+          <td></td>
+     <% else %>
           <td><A HREF="configure?itf=<%= itf %>">Configure</A></td>
+     <% end %>
           <td><%= data[:status] %></td>
           <td><%= data[:bandwidth] %></td>
           <td><%= data[:delay] %></td>

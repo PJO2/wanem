@@ -12,6 +12,10 @@ def set_itf_status( itf, params )
   loss = params[:loss].to_i
   jitter = params[:jitter].to_i
   bandwidth = params[:bandwidth].to_i
+  if (m = params[:bandwidth].match( /^ *\d+ ?(k|K|m|M|g|G)(?:bit|bits)$/ ) )
+      bandwdith_unit = m.captures[0] + 'bit'
+  end
+
 
   # override delay and jitter
   if  jitter>0

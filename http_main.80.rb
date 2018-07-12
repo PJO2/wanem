@@ -7,13 +7,8 @@ require 'sinatra'
 load "get_op_status.rb"      # read operationnal status by CLI
 load "set_itf_status.rb"      # read operationnal status by CLI
 
-
-# get arguments (port number only)
-port_nb = ARGV.shift || 8080 
-
-# confiugure sinatra
 set :server, 'thin'
-set :port, port_nb
+set :port, 80
 set :bind, '0.0.0.0'
 
 configure do

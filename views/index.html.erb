@@ -1,4 +1,12 @@
 <html>
+<head>
+<style>
+body {
+  font-family: Sans-Serif;
+}
+</style>
+</head>
+<body>
 <H1>wanem</H1>
 
 <Table>
@@ -13,13 +21,13 @@
    </tr>
    <% op_datas.each_with_index do | (itf, data), index | %>
      <% if ( index < 2 ) %>
-       <tr style="background-color:#E0E0E0; color:#808080">
+       <tr style="background-color:#E0E0E0; color:#808080;  margin-top:5px; ">
      <% elsif ( index % 4  < 2 ) %>
        <tr style="background-color:#D0D0FF">
      <% else %>
-       <tr style="background-color:#D0FFD0">
+       <tr style="background-color:#D0FFD0;  border-top: 10px solid;">
      <% end %>
-          <td><%= itf %></td>
+          <td style="padding-top:5px; padding-bottom:5px;"><%= itf %></td>
      <% if ( index < 2 ) %>
           <td></td>
      <% else %>
@@ -36,6 +44,6 @@
       </tr>
   <% end %>
 </table>
-
+</body>
 </html>
    

@@ -8,7 +8,7 @@
 # --------------------------
 def get_network_interfaces
    # get non virtual interface name looking in /sys/class/net 
-   cli_output = `ls -l /sys/class/net/ | tail -n +2 | grep -v virtual | cut -d' ' -f9 | sort`
+   cli_output = `ls -l /sys/class/net/ | tail -n +2 | grep '^l' | grep -v virtual | awk '{print $9}' | sort`
    return  cli_output.split("\n")
 end
    

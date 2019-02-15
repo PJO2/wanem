@@ -20,8 +20,6 @@ end
 # supports only tbf but enough for us
 # --------------------------
 
-# NICs = [ 'enp3s0', 'enp4s0', 'enp5s0', 'enp6s0' ]
-
 # return a hash containing operationnal tc values
 def get_itf_tc_data(itf)
    # empty settings:
@@ -68,7 +66,7 @@ end
 # ---------------------------
 def get_itf_lldp_data(itf)
    lldp_data = { neighbor: '' }
-   lldp_out = `/usr/sbin/lldpctl -f plain #{itf} | grep SysName | awk '{print $2}'`
+   lldp_out = `/usr/sbin/lldpctl -f plain #{itf} | grep SysName | awk '{print $2}' | uniq`
    lldp_data[:neighbor] = lldp_out
    return lldp_data
 end

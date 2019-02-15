@@ -1,7 +1,8 @@
 # wanem
-A small web interface which remotely configure traffic control
+A small web interface which remotely configure traffic control (tc)
 
-# debian installation
+
+## Installing on Debian
 
 ```
 apt-get update
@@ -10,7 +11,8 @@ gem install sinatra
 gem install thin
 ```
 
-# cumulus installation
+
+## Installing on Cumuls Linux
 ruby-dev is not a package, should be installed manually
 
 ```
@@ -27,7 +29,8 @@ gem install thin
 
 ```
 
-# installation on CentOs
+
+## Installing on CentOs
 
 ```
 yum install epel-release

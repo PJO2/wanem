@@ -11,7 +11,7 @@ load "set_itf_status.rb"      # read operationnal status by CLI
 # get arguments (port number only)
 port_nb = ARGV.shift || 8080 
 
-# config: add specific interfaces before automatic learning
+# config: add specific interfaces before automatic discovery
 NICs = [  ] + get_network_interfaces()
 
 # confiugure sinatra

@@ -12,7 +12,7 @@ gem install thin
 ```
 
 
-## Installing on Cumuls Linux
+## Installing on Cumulus Linux
 ruby-dev is not a package, should be installed manually
 
 ```

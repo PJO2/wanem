@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # ---------------------
-
 # Web interface which configures ethernet interfaces
+# ---------------------
 
 require 'sinatra'
 load "get_op_status.rb"      # read operationnal status by CLI
@@ -23,9 +23,10 @@ configure do
    Tilt.register Tilt::ERBTemplate, 'html.erb'
 end
 
+# config: add specific interfaces into array
+NICs = [  ] + get_network_interfaces()
 
-NICs = [ 'enp1s0', 'enp2s0', 'enp3s0', 'enp4s0', 'enp5s0', 'enp6s0' ]
-
+# URL routage
 get '/' do
   op_datas = get_op_data( NICs )
   erb :"index", :locals => { 'op_datas' => op_datas }

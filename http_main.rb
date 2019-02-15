@@ -11,10 +11,14 @@ load "set_itf_status.rb"      # read operationnal status by CLI
 # get arguments (port number only)
 port_nb = ARGV.shift || 8080 
 
+# config: add specific interfaces before automatic learning
+NICs = [  ] + get_network_interfaces()
+
 # confiugure sinatra
 set :server, 'thin'
 set :port, port_nb
 set :bind, '0.0.0.0'
+
 
 configure do
    set :root, '.'
@@ -22,9 +26,6 @@ configure do
    # register html templates beginning vith .html.erb
    Tilt.register Tilt::ERBTemplate, 'html.erb'
 end
-
-# config: add specific interfaces into array
-NICs = [  ] + get_network_interfaces()
 
 # URL routage
 get '/' do

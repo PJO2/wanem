@@ -1,0 +1,4 @@
+index 		it is the main template.
+		gives the list of interfaces with their properties
+configure 	displays a form to give interfaces parameters
+afterè_post	gives the cli cmd 

@@ -1,5 +1,6 @@
 # wanem
 A small web interface which remotely configure traffic control (tc)
+with automated interfaces discovery
 
 
 ## Installing on Debian
@@ -9,6 +10,9 @@ apt-get update
 apt-get install ruby bridge-utils lldp ruby-dev
 gem install sinatra
 gem install thin
+git clone https://github.com/PJO2/wanem
+cd wanem
+ruby ./http_main.rb
 ```
 
 
@@ -26,7 +30,9 @@ dpkg -i ruby2.1-dev_2.1.5-2+deb8u6_amd64.deb
 
 gem install sinatra:1.4.8
 gem install thin
-
+git clone https://github.com/PJO2/wanem
+cd wanem
+ruby ./http_main.rb
 ```
 
 
@@ -37,9 +43,15 @@ yum install epel-release
 yum update
 
 yum group info "Development Tools"
-yum install bridge-utils lldpd ruby
+yum install bridge-utils lldpd ruby ruby-dev
 gem install sinatra:1.4.8
 gem install thin
 
+service NetworkManager stop
+systemctl disable NetworkManager.service
+
+git clone https://github.com/PJO2/wanem
+cd wanem
+ruby ./http_main.rb
 ```
 

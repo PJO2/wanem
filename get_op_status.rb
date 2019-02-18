@@ -71,15 +71,28 @@ def get_itf_lldp_data(itf)
    return lldp_data
 end
 
+
+# ---------------------------
+# return bridge interface (if any)
+# ---------------------------
+def get_itf_bridge(itf)
+   bridge_data = { bridge: '' }
+   cli_out = `readlink /sys/class/net/#{itf}/brport/bridge | awk -F'/' '{print $NF}'` 
+   bridge_data[:bridge] = cli_out
+
+   return bridge_data
+end
+
 # -------------
 # get operationnal op_data for all interfaces
-def get_op_data nics
 # ---------------------------
+def get_op_data nics
    op_datas = {}
    nics.each do  |nic|   
         op_datas[nic] = get_itf_tc_data nic 
         op_datas[nic].merge!( get_itf_ip_data nic )
         op_datas[nic].merge!( get_itf_lldp_data nic )
+        op_datas[nic].merge!( get_itf_bridge nic )
    end
    return op_datas
 end
@@ -89,6 +102,14 @@ end
 # -- self tests
 # ---------------------------
 if __FILE__ == $0
-   print get_network_interfaces
+   NICs = get_network_interfaces
+   print NICs
+   op_datas = get_op_data( NICs )
+   op_datas.each do |nic, data|
+      puts nic
+      data.each do |key, val|
+           puts "   " + key.to_s + ":" + val.to_s
+      end
+   end
 end
 

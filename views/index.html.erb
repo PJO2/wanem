@@ -4,6 +4,19 @@
 body {
   font-family: Sans-Serif;
 }
+th, td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+th                 { background-color: #F0F0F0; }
+tr:nth-child(even) { background-color:#E0F0FF; }
+tr:nth-child(odd)  { background-color:#E0FFDC; }
+td.cbc             { color:DarkBlue; }
+tr.nobridge        { color:SlateGray; }
+</style>
+</head>
 </style>
 </head>
 <body>
@@ -12,26 +25,26 @@ body {
 <Table>
    <tr>
           <th>Interface</th>
+          <th>Bridge</th>
           <th>&nbsp;</th>
           <th>status</th>
           <th>bandwidth</th><th>delay</th><th>jitter</th><th>loss</th>
-          <th>in- packets</th>
+          <th>in packets</th>
           <th>out packets</th>
-          <th>lldp neighbor<th>
+          <th>lldp neighbor</th>
    </tr>
-   <% op_datas.each_with_index do | (itf, data), index | %>
-     <% if ( index % 2  ==0 ) %>
-       <tr style="background-color:#E0E0FF">
-     <% else %>
-       <tr style="background-color:#D8FFD8;  border-top: 10px solid;">
-     <% end %>
-          <td style="padding-top:5px; padding-bottom:5px;"><%= itf %></td>
+   <% op_datas.each_with_index do | (itf, data) | %>
+   <tr<%= data[:bridge].empty?  ?  ' class="nobridge"' : '' %>>
+          <td><%= itf %></td>
+          <td><%= data[:bridge] %></td>
           <td><A HREF="configure?itf=<%= itf %>">Configure</A></td>
           <td><%= data[:status] %></td>
-          <td><%= data[:bandwidth] %></td>
-          <td><%= data[:delay] %></td>
-          <td><%= data[:jitter] %></td>
-          <td><%= data[:loss] %></td>
+
+          <td<%= data[:bridge].empty?  ? '' : ' class="cbc"' %>><%= data[:bandwidth] %></td>
+          <td<%= data[:bridge].empty?  ? '' : ' class="cbc"' %>><%= data[:delay] %></td>
+          <td<%= data[:bridge].empty?  ? '' : ' class="cbc"' %>><%= data[:jitter] %></td>
+          <td<%= data[:bridge].empty?  ? '' : ' class="cbc"' %>><%= data[:loss] %></td>
+
           <td><%= data[:inpkts] %></td>
           <td><%= data[:outpkts] %></td>
           <td><%= data[:neighbor] %></td>

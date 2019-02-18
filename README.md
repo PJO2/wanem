@@ -1,14 +1,21 @@
-# wanem: A wan emulator for virtual and physical appliances
+# wanem: A non disruptive wan emulator for virtual and physical appliances
 
-wanem is a clean web interface which remotely configure traffic control (tc)
+wanem is a clean web interface which remotely configure the linux traffic control driver (tc). It is a great way to simulate a wan environment for testing purposes.
+
 
 ## features: 
 * automated interfaces discovery
 * display the bridge interface associated to native interfaces
+* report facing device name such as reported by LLDP
 * limit bandwidth per interface
 * adjust delay, loss and jitter per interface
+* built for bridges, does not change the VLAN and IP working setup
 
 ## Installation
+
+First, create bridge interfaces on your appliance and connect each bridge interface to two physical interfaces. Configure a real or dummy IP address on each bridge.
+Connect each WAN end to a physical interface.
+Install wanem and ue the HTML interface to configure the bandwidth, the delay, the packet loss and the jitter of each interface.
 
 ### Installing on Debian
 
@@ -45,7 +52,13 @@ ruby ./http_main.rb
 
 ### Installing on CentOs
 
+Main concern is to stop NetworkManager, which does not support bridging.  Then install as follow.
+
 ```
+# Stop networkmanager
+service NetworkManager stop
+systemctl disable NetworkManager.service
+
 yum install epel-release
 yum update
 
@@ -54,15 +67,14 @@ yum install bridge-utils lldpd ruby ruby-dev
 gem install sinatra:1.4.8
 gem install thin
 
-service NetworkManager stop
-systemctl disable NetworkManager.service
-
 git clone https://github.com/PJO2/wanem
 cd wanem
 ruby ./http_main.rb
 ```
 
 ## making wanem start on boot
+Add a @reboot line into the crontab
+(Note: PATH setup is only necessary for CentOS).
 
 ```
 crontab -e

@@ -17,7 +17,7 @@ wanem is a clean web interface which remotely configure the linux traffic contro
 ![preview](wanem_preview.png)
 
 
-## Installation
+# Installation
 
 First, create bridge interfaces on your appliance and connect each bridge interface to two physical interfaces. Configure a real or a dummy IP address on each bridge.
 Connect each WAN end to a physical interface.

@@ -9,7 +9,7 @@ wanem is a clean web interface which remotely configure the linux traffic contro
 * report facing device name such as reported by LLDP
 * limit bandwidth per interface
 * adjust delay, loss and jitter per interface
-* built for bridges, does not change the VLAN and IP working setup
+* built for bridges, does not change the VLAN attribution and IP setup
 
 ## Installation
 

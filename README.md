@@ -10,13 +10,15 @@ wanem is a clean web interface which remotely configure the linux traffic contro
 * report facing device name such as reported by LLDP
 * limit bandwidth per interface
 * adjust delay, loss and jitter per interface
-* built for bridges, does not change the VLAN attribution and IP setup
+* built for bridges, does not change your VLAN attribution and IP setup
+
+
 
 ## Installation
 
-First, create bridge interfaces on your appliance and connect each bridge interface to two physical interfaces. Configure a real or dummy IP address on each bridge.
+First, create bridge interfaces on your appliance and connect each bridge interface to two physical interfaces. Configure a real or a dummy IP address on each bridge.
 Connect each WAN end to a physical interface.
-Install wanem and ue the HTML interface to configure the bandwidth, the delay, the packet loss and the jitter of each interface.
+Install and start wanem and use the HTML interface to configure the bandwidth, the delay, the packet loss and the jitter of each interface.
 
 ### Installing on Debian
 

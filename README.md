@@ -2,8 +2,9 @@
 A small web interface which remotely configure traffic control (tc)
 with automated interfaces discovery
 
+## Installation
 
-## Installing on Debian
+### Installing on Debian
 
 ```
 apt-get update
@@ -16,7 +17,7 @@ ruby ./http_main.rb
 ```
 
 
-## Installing on Cumulus Linux
+### Installing on Cumulus Linux
 ruby-dev is not a package, should be installed manually
 
 ```
@@ -36,7 +37,7 @@ ruby ./http_main.rb
 ```
 
 
-## Installing on CentOs
+### Installing on CentOs
 
 ```
 yum install epel-release
@@ -55,3 +56,10 @@ cd wanem
 ruby ./http_main.rb
 ```
 
+## making wanem start on boot
+
+```
+crontab -e
+add a line : 
+@reboot (cd home/ark/wanem && ruby http_main.rb &> /dev/null &)
+```

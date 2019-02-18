@@ -1,4 +1,4 @@
-# wanem: A wan emulator for virtual and physical appliances
+# wanem: a wan emulator for virtual and physical appliances
 
 wanem is a clean web interface which remotely configure the linux traffic control driver (tc). It is a great way to simulate a wan environment for testing purposes.
 

@@ -2,6 +2,7 @@
 
 wanem is a clean web interface which remotely configure the linux traffic control driver (tc). It is a great way to simulate a wan environment for testing purposes.
 
+![preview](wanem_preview.png)
 
 ## features: 
 * automated interfaces discovery

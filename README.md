@@ -1,6 +1,12 @@
-# wanem
-A small web interface which remotely configure traffic control (tc)
-with automated interfaces discovery
+# wanem: A wan emulator for virtual and physical appliances
+
+wanem is a clean web interface which remotely configure traffic control (tc)
+
+## features: 
+* automated interfaces discovery
+* display the bridge interface associated to native interfaces
+* limit bandwidth per interface
+* adjust delay, loss and jitter per interface
 
 ## Installation
 

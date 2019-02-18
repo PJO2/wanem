@@ -8,7 +8,7 @@ wanem is a clean web interface which remotely configure the linux traffic contro
 ## features: 
 * automated interfaces discovery
 * display the bridge interface associated to native interfaces
-* report facing device name such as reported by LLDP
+* report facing devices name such as reported by LLDP
 * report interfaces statistics
 * limit bandwidth per interface
 * adjust delay, loss and jitter per interface

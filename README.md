@@ -61,5 +61,5 @@ ruby ./http_main.rb
 ```
 crontab -e
 add a line : 
-@reboot (cd home/ark/wanem && ruby http_main.rb &> /dev/null &)
+@reboot (export PATH='/bin:/sbin:/usr/bin:/usr/sbin' && cd home/ark/wanem && ruby http_main.rb &> /dev/null &)
 ```

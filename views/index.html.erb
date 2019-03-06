@@ -15,6 +15,7 @@ tr:nth-child(even) { background-color:#E0F0FF; }
 tr:nth-child(odd)  { background-color:#E0FFDC; }
 td.cbc             { color:DarkBlue; }
 tr.nobridge        { color:SlateGray; }
+a.smooth           { color: inherit; text-decoration: none; }
 </style>
 </head>
 </style>
@@ -25,6 +26,7 @@ tr.nobridge        { color:SlateGray; }
 <Table>
    <tr>
           <th>Interface</th>
+          <th>Alias</th>
           <th>Bridge</th>
           <th>&nbsp;</th>
           <th>status</th>
@@ -36,6 +38,9 @@ tr.nobridge        { color:SlateGray; }
    <% op_datas.each_with_index do | (itf, data) | %>
    <tr<%= data[:bridge].empty?  ?  ' class="nobridge"' : '' %>>
           <td><%= itf %></td>
+
+          <td><a href="setalias?itf=<%= itf %>" class="smooth"><%= data[:alias].empty? ? "define" : data[:alias] %></A></td>
+
           <td><%= data[:bridge] %></td>
           <td><A HREF="configure?itf=<%= itf %>">Configure</A></td>
           <td><%= data[:status] %></td>

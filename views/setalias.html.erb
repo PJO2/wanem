@@ -1,0 +1,22 @@
+<html>
+<head>
+<style>
+body {
+  font-family: Sans-Serif;
+}
+</style>
+</head>
+
+<body>
+<H1>wanem: set alias for interface <%= itf %></H1>
+
+<br>
+<form action='/setalias?itf=<%= itf %>' method='post'>
+  Set interface alias to: 
+  <input type="text" name="alias" value="<%= itf %>">
+<br>
+  <input type='submit' value="Set" />
+</form>
+</body>
+</html>
+   

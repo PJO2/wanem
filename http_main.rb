@@ -46,4 +46,13 @@ post '/configure' do
    # quick hack: return "<pre> #{tc_out} </pre>"
 end
 
+get '/setalias' do
+   itf = params[:itf]
+   erb :setalias, :locals => { 'itf' => itf }
+end
+
+post '/setalias' do
+   tc_out = set_itf_alias params[:itf], params
+   redirect '/'
+end
 

@@ -38,5 +38,8 @@ def set_itf_status( itf, params )
   return tc_out
 end
 
-
+def set_itf_alias( itf, params ) 
+  print ("/sbin/ip link set dev #{itf} alias #{params[:alias]}")
+  `/sbin/ip link set dev #{itf} alias #{params[:alias]}`
+end
 

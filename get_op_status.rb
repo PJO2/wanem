@@ -83,6 +83,19 @@ def get_itf_bridge(itf)
    return bridge_data
 end
 
+# ---------------------------
+# return interface alias (if any)
+# ---------------------------
+def get_itf_alias(itf)
+   alias_data = { alias: '' }
+   cli_out = `test -r /sys/class/net/#{itf}/ifalias && cat /sys/class/net/#{itf}/ifalias` 
+   alias_data[:alias] = cli_out
+
+   return alias_data
+end
+
+
+# -------------
 # -------------
 # get operationnal op_data for all interfaces
 # ---------------------------
@@ -93,6 +106,7 @@ def get_op_data nics
         op_datas[nic].merge!( get_itf_ip_data nic )
         op_datas[nic].merge!( get_itf_lldp_data nic )
         op_datas[nic].merge!( get_itf_bridge nic )
+        op_datas[nic].merge!( get_itf_alias nic )
    end
    return op_datas
 end

@@ -23,13 +23,13 @@ First, create bridge interfaces on your appliance and connect each bridge interf
 Connect each WAN end to a physical interface.
 Install and start wanem and use the HTML interface to configure the bandwidth, the delay, the packet loss and the jitter of each interface.
 
-### Installing on Debian
+### Installing on Debian/Ubuntu
 
 ```
-apt-get update
-apt-get install ruby bridge-utils lldp ruby-dev
-gem install sinatra
-gem install thin
+sudo apt update
+sudo apt install ruby bridge-utils lldpd ruby-dev build-essentials
+sudo gem install sinatra
+sudo gem install thin
 git clone https://github.com/PJO2/wanem
 cd wanem
 ruby ./http_main.rb

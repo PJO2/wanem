@@ -23,16 +23,36 @@ First, create bridge interfaces on your appliance and connect each bridge interf
 Connect each WAN end to a physical interface.
 Install and start wanem and use the HTML interface to configure the bandwidth, the delay, the packet loss and the jitter of each interface.
 
-### Installing on Debian
+### Installing on Debian or Ubuntu (tested on 16.04 and 18.04)
 
 ```
 apt-get update
-apt-get install ruby bridge-utils lldp ruby-dev
-gem install sinatra
-gem install thin
+apt-get install build-essential ruby bridge-utils lldpd ruby-dev
+gem install sinatra --no-ri --no-rdoc
+gem install thin --no-ri --no-rdoc
 git clone https://github.com/PJO2/wanem
 cd wanem
 ruby ./http_main.rb
+```
+
+### Autostart with systemd (example on Ubuntu 18.04, should work with 16.04 as well)
+
+On systemd-based distributions, wanem can be auto-started at boot with a simple systemd unit file (provided in the repository).
+Note that this unit is written with the assumptions that:
+ - the service will be started as `root` user
+ - the `http_main.rb` is in `/home/ubuntu/wanem` 
+
+Make sure to change both accordingly before installing the unit.
+
+To install and start the unit:
+```
+sudo cp wanem.service /etc/systemd/system/
+systemctl enable wanem
+systemctl start wanem
+```
+To check the status:
+```
+systemctl status wanem
 ```
 
 

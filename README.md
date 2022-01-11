@@ -30,7 +30,7 @@ apt-get update
 apt-get install build-essential ruby bridge-utils lldpd ruby-dev
 gem install sinatra --no-ri --no-rdoc
 gem install thin --no-ri --no-rdoc
-git clone https://github.com/PJO2/wanem
+git clone https://github.com/mbound/wanem
 cd wanem
 ruby ./http_main.rb
 ```
@@ -70,7 +70,7 @@ dpkg -i ruby2.1-dev_2.1.5-2+deb8u6_amd64.deb
 
 gem install sinatra:1.4.8
 gem install thin
-git clone https://github.com/PJO2/wanem
+git clone https://github.com/mbound/wanem
 cd wanem
 ruby ./http_main.rb
 ```
@@ -93,7 +93,7 @@ yum install bridge-utils lldpd ruby ruby-dev
 gem install sinatra:1.4.8
 gem install thin
 
-git clone https://github.com/PJO2/wanem
+git clone https://github.com/mbound/wanem
 cd wanem
 ruby ./http_main.rb
 ```

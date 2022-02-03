@@ -1,0 +1,13 @@
+# wanem.service
+[Unit]
+Description=Starts Wanem WAN emulator web UI
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/wanem
+Restart=always
+ExecStart=/usr/bin/ruby ./http_main.rb
+
+[Install]
+WantedBy=multi-user.target
